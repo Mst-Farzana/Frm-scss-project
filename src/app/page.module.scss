@@ -1,0 +1,810 @@
+/* ==========================================
+   ANIMATIONS
+========================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animateIn {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* ==========================================
+   GLOBAL CONTAINER - Full Width
+========================================== */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* ==========================================
+   WORK SECTION GRID - Full Width 2 Columns
+========================================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  width: 100%;
+  align-items: start;
+}
+
+.project {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Image Slider Container */
+.imageSlider {
+  position: relative;
+  margin: 0 1.5rem 1rem 1.5rem;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0;
+  background-color: #f5f5f5;
+}
+
+/* Individual Image Wrapper */
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+
+  &.active {
+    opacity: 1;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* Slider Navigation Dots */
+.sliderDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+  opacity: 0.4;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.activeDot {
+    opacity: 1;
+    background-color: var(--text-color);
+    transform: scale(1.2);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 0 1.5rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.category {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ==========================================
+   WORK SECTION TEXT
+========================================== */
+.workTextSection {
+  width: 100%;
+  max-width: 100%;
+  margin: 4rem 0 0;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  box-sizing: border-box;
+}
+
+.workParagraph {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.75rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0;
+  text-align: left;
+  font-weight: 400;
+}
+
+/* ==========================================
+   BOOK SECTION
+========================================== */
+.bookSection {
+  width: 100%;
+  background-color: var(--bg-color);
+  padding: 3rem 0;
+}
+
+.bookContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.bookCoverWrapper {
+  position: sticky;
+  top: 120px;
+  min-width: 0;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.bookCover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transition: transform 0.6s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  .coverImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.bookContent {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.bookParagraph {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin: 0;
+  text-align: left;
+}
+
+.bookLink {
+  color: var(--text-color);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.forewordIntro {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin: 1rem 0 0;
+}
+
+.bookQuote {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin: 1rem 0 0;
+  padding: 0;
+  font-style: italic;
+  border: none;
+
+  &::before {
+    content: "\201C";
+  }
+
+  &::after {
+    content: "\201D";
+  }
+}
+
+.orderParagraph {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin: 1.5rem 0 0;
+}
+
+/* ==========================================
+   ABOUT SECTION - 2 Columns
+========================================== */
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  .imageWrapper {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 0;
+    aspect-ratio: 4 / 3;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    background-color: #f5f5f5;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.aboutContent {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.paragraph {
+  font-family: "Times New Roman", "Georgia", serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-color);
+  margin: 0 0 1.5rem;
+  text-align: justify;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Email Link */
+.emailLink {
+  color: var(--text-color);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+/* Newsletter Section */
+.newsletterSection {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.newsletterTitle {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.newsletterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 800px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text-color);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--text-muted);
+  outline: none;
+  transition: border-color 0.3s ease;
+
+  &::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  &:focus {
+    border-bottom-color: var(--text-color);
+  }
+}
+
+.subscribeButton {
+  align-self: center;
+  padding: 0.75rem 2rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-color);
+  background: transparent;
+  border: 2px solid var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+
+  &:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+  }
+}
+
+.requiredText {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+.sectionTitle {
+  width: 100%;
+  padding: 0 3rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.sectionTitleText {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--text-color);
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET (1024px)
+========================================== */
+@media (max-width: 1024px) {
+  .container {
+    padding: 2rem 0;
+  }
+
+  .grid,
+  .imageGrid {
+    grid-template-columns: repeat(2, 1fr); // ✅ 2 columns maintain
+    gap: 0;
+  }
+
+  .imageSlider {
+    margin: 0 1rem 0.75rem 1rem;
+  }
+
+  .content {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 1.375rem;
+  }
+
+  .category {
+    font-size: 0.8125rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+
+  .workTextSection {
+    margin: 3rem 0 0;
+    padding: 0 2rem;
+    gap: 2rem;
+  }
+
+  .workParagraph {
+    font-size: 1.375rem;
+  }
+
+  .sectionTitle {
+    padding: 0 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .sectionTitleText {
+    font-size: 3rem;
+  }
+
+  .bookContainer {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+
+  .bookCoverWrapper {
+    order: -1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .bookParagraph,
+  .forewordIntro,
+  .bookQuote,
+  .orderParagraph {
+    font-size: 1.0625rem;
+  }
+
+  .paragraph {
+    font-size: 1.0625rem;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - MOBILE (768px)
+========================================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 0;
+  }
+
+  .grid,
+  .imageGrid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .project,
+  .imageGrid .imageWrapper {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+
+  .imageSlider {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 0 0 1rem;
+  }
+
+  .imageGrid .imageWrapper {
+    aspect-ratio: 16 / 9;
+  }
+
+  .content {
+    padding: 0 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .category {
+    font-size: 0.75rem;
+  }
+
+  .description {
+    font-size: 0.8125rem;
+  }
+
+  .workTextSection {
+    margin: 2rem 0 0;
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .workParagraph {
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+
+  .sectionTitle {
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .sectionTitleText {
+    font-size: 2.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .bookSection {
+    padding: 2rem 0;
+  }
+
+  .bookContainer {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .bookCoverWrapper {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .bookContent {
+    gap: 1.25rem;
+  }
+
+  .bookParagraph,
+  .forewordIntro,
+  .bookQuote,
+  .orderParagraph {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .bookCover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .bookCover:hover {
+    transform: none;
+  }
+
+  .orderSection {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+  }
+
+  .orderLink {
+    font-size: 1rem;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .bookPreview {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+    margin-bottom: 1.25rem;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .newsletterSection {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+
+  .newsletterTitle {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .subscribeButton {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.875rem;
+  }
+
+  .input {
+    font-size: 1rem;
+    padding: 0.75rem 0;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - SMALL MOBILE (380px)
+========================================== */
+@media (max-width: 380px) {
+  .grid,
+  .imageGrid {
+    gap: 0;
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+
+  .category {
+    font-size: 0.6875rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+  }
+
+  .workTextSection {
+    padding: 0 1rem;
+  }
+
+  .workParagraph {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    padding: 0 1rem;
+  }
+
+  .sectionTitleText {
+    font-size: 2rem;
+  }
+
+  .bookParagraph,
+  .forewordIntro,
+  .bookQuote,
+  .orderParagraph {
+    font-size: 0.9375rem;
+  }
+
+  .paragraph {
+    font-size: 0.9375rem;
+  }
+
+  .newsletterTitle {
+    font-size: 0.9375rem;
+  }
+
+  .subscribeButton {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    padding-top: 1rem;
+  }
+
+  .sectionTitle {
+    margin-bottom: 1.5rem;
+  }
+
+  .imageSlider {
+    margin: 0 0 1rem;
+  }
+
+  .content {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .workTextSection {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .aboutContent {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+@media (prefers-reduced-motion: reduce) {
+  .imageWrapper img,
+  .bookCover,
+  .previewContainer .previewImage,
+  .orderLink,
+  .animateIn,
+  .imageWrapper {
+    animation: none;
+    transition: none;
+  }
+
+  .imageWrapper:hover img,
+  .bookCover:hover,
+  .previewContainer:hover .previewImage,
+  .orderLink:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,575 @@
+/* ==========================================
+   BOOK DETAIL PAGE - Routledge Style
+========================================== */
+.bookDetailPage {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Back Button */
+.backButton {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.backLink {
+  font-size: 1rem;
+  color: var(--text-color, #000000);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+/* Top Banner */
+.topBanner {
+  background-color: #1a1a6c;
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+}
+
+/* Main Book Section */
+.bookMainSection {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr) 320px;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Book Cover Column */
+.bookCoverColumn {
+  position: relative;
+}
+
+.saveBadge {
+  background-color: #c2185b;
+  color: #ffffff;
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 0;
+}
+
+.bookCover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: #e8652a;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 4px 4px;
+
+  .coverImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Book Info Column */
+.bookInfoColumn {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.edition {
+  font-size: 0.9375rem;
+  color: #666;
+  margin: 0;
+}
+
+.bookTitle {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-color, #000000);
+  margin: 0;
+  font-family: "Georgia", serif;
+}
+
+.author {
+  font-size: 1.125rem;
+  color: #1a1a6c;
+  margin: 0;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.copyright {
+  font-size: 0.9375rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Format Tabs */
+.formatTabs {
+  display: flex;
+  gap: 0;
+  margin-top: 1.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.formatTab {
+  flex: 1;
+  padding: 1rem;
+  background: #ffffff;
+  border: none;
+  border-right: 1px solid #e5e5e5;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--text-color, #000000);
+  transition: background 0.3s ease;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover {
+    background: #f5f5f5;
+  }
+
+  &.active {
+    background: #f0f0f0;
+    font-weight: 700;
+  }
+
+  .price {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+    display: block;
+  }
+}
+
+/* Purchase Column */
+.purchaseColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.purchaseBox {
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.isbnInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  p {
+    font-size: 0.9375rem;
+    color: #333;
+    margin: 0;
+  }
+}
+
+.inspectionLink {
+  color: #1a1a6c;
+  font-weight: 700;
+  text-decoration: underline;
+  font-size: 0.9375rem;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.shippingInfo {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  p {
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+}
+
+.shippingPolicy {
+  color: #1a1a6c;
+  text-decoration: underline;
+  font-size: 0.9375rem;
+}
+
+/* Cart Box */
+.cartBox {
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cartTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-color, #000000);
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.originalPrice {
+  font-size: 1rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.salePrice {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #c2185b;
+}
+
+.quantityRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  overflow: hidden;
+
+  button {
+    width: 36px;
+    height: 36px;
+    background: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: var(--text-color, #000000);
+
+    &:hover {
+      background: #f5f5f5;
+    }
+  }
+
+  span {
+    width: 40px;
+    text-align: center;
+    font-size: 1rem;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    padding: 0.5rem 0;
+  }
+}
+
+.addToCartBtn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #1a1a6c;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background-color: #12124a;
+  }
+}
+
+.wishListBtn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #ffffff;
+  color: #1a1a6c;
+  border: 1px solid #1a1a6c;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #1a1a6c;
+    color: #ffffff;
+  }
+}
+
+/* ==========================================
+   ACCORDION SECTION
+========================================== */
+.accordionSection {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+
+.accordionItem {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.accordionHeader {
+  width: 100%;
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Georgia", serif;
+  font-size: 1.5rem;
+  color: var(--text-color, #000000);
+  text-align: left;
+}
+
+.chevron {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.accordionContent {
+  padding-bottom: 1.5rem;
+
+  p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0 0 1rem;
+  }
+}
+
+.tocList {
+  padding-left: 1.5rem;
+  margin: 0;
+
+  li {
+    font-size: 1.0625rem;
+    line-height: 2;
+    color: #333;
+  }
+}
+
+.reviewQuote {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #333;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  cite {
+    display: block;
+    margin-top: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    color: #666;
+  }
+}
+
+/* ==========================================
+   RELATED SECTION
+========================================== */
+.relatedSection {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+}
+
+.relatedTitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: var(--text-color, #000000);
+  font-family: "Georgia", serif;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.relatedBook {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.relatedCover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.relatedBookTitle {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET
+========================================== */
+@media (max-width: 1024px) {
+  .bookMainSection {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .purchaseColumn {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .purchaseBox,
+  .cartBox {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .relatedGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bookTitle {
+    font-size: 2rem;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+========================================== */
+@media (max-width: 768px) {
+  .bookMainSection {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .bookCoverColumn {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+
+  .purchaseColumn {
+    flex-direction: column;
+  }
+
+  .formatTabs {
+    flex-direction: column;
+  }
+
+  .formatTab {
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .accordionHeader {
+    font-size: 1.25rem;
+    padding: 1.25rem 0;
+  }
+
+  .relatedGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .accordionSection,
+  .relatedSection {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .bookTitle {
+    font-size: 1.75rem;
+  }
+
+  .salePrice {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .relatedGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .bookTitle {
+    font-size: 1.5rem;
+  }
+
+  .backButton {
+    padding: 1rem;
+  }
+
+  .topBanner {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}

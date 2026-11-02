@@ -1,0 +1,125 @@
+// ==========================================
+// 1. CSS Variables
+// ==========================================
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --text-muted: #888888;
+}
+
+// ==========================================
+// 2. Basic Reset
+// ==========================================
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+// ==========================================
+// 3. Responsive Breakpoints (শুধু ফন্ট সাইজ)
+// ==========================================
+
+// Desktop (100% zoom - 1920px to 1025px)
+@media screen and (max-width: 1024px) {
+  html,
+  body {
+    font-size: 15px;
+  }
+}
+
+// Small Laptop/Tablet (90-80% zoom - 1024px to 769px)
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+// Mobile (480px and below)
+@media screen and (max-width: 480px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+}
+
+// Small Mobile (380px and below)
+@media screen and (max-width: 380px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+
+// ==========================================
+// 4. Accessibility
+// ==========================================
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// ==========================================
+// 5. Print Styles
+// ==========================================
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  header,
+  nav,
+  footer {
+    display: none;
+  }
+
+  main {
+    padding: 0;
+  }
+}
